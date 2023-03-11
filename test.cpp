@@ -283,5 +283,10 @@ int main()
     //     cout << "Token: " << it->token << ", Frequency: " << it->freq << endl;
     // }
 
+    std::string input2 = "Seoul Korea Korea Korea Oh Ah yes";
+    vector<TokenFreq> expected1 = {{"ah", 1}, {"korea", 3}, {"oh", 1}, {"seoul", 1}, {"yes", 1}};
+    vector<TokenFreq> output1;
+    printFrequency(input2);
+
     return 0;
 }
