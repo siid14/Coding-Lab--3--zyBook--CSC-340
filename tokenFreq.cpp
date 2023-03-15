@@ -17,6 +17,33 @@ namespace NS_TOKEN_FREQ
     void getTokenFreqVec(string &istr, vector<TokenFreq> &tfVec)
     {
 
+        // ? get empty string & only white space togtether
+        // empty string (negative case)
+        if (istr.empty())
+        {
+            //      std::cout << "empty string"
+            //  << "\n";
+            return;
+        }
+
+        int N = istr.length();
+        // Traverse the string
+        for (int i = 0; i < N; i++)
+        { // Print current character
+            std::cout << istr[i] << " ";
+            if (istr[i] != ' ')
+            {
+                std::cout << "It's not a string of white space only"
+                          << "\n";
+            }
+            else
+            {
+                istr = "Only white space";
+                std::cout << istr << "\n";
+                return;
+            }
+        }
+
         // * get individual words (token) of istr into a map FW of key-value
         std::map<string, int> FW; // Each word it mapped to it's frequency
 

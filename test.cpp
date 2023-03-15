@@ -96,8 +96,51 @@ void selectionSortVector(vector<TokenFreq> vector, int vectorSize)
     }
 }
 
-void printFrequency(string st) //
+void printFrequency(string &st) //
 {
+
+    // empty string (negative case)
+    if (st.empty())
+    {
+        cout << "empty string"
+             << "\n";
+        return;
+    }
+
+    int isspace(char c);
+
+    // ! if statement will always return true because the address of
+    // ! a function, isspace, is not zero and "not zero" means true
+    // if (st.begin(), st.end(), isspace == 0)
+    // {
+    //     std::cout << "there is white space"
+    //               << "\n";
+    //     return;
+    // }
+    // else
+    // {
+    //     cout << "There is no whitespace"
+    //          << "\n";
+    // }
+
+    int N = st.length();
+    // Traverse the string
+    for (int i = 0; i < N; i++)
+    { // Print current character
+        cout << st[i] << " ";
+        if (st[i] != ' ')
+        {
+            cout << "It's not a string of white space only"
+                 << "\n";
+        }
+        else
+        {
+            st = "Only white space";
+            cout << st << "\n";
+            return;
+        }
+    }
+
     cout << "TESTING MAPPING TOKEN + FREQUENCY TO MAP KEY VALUE" << endl
          << endl;
     // * TESTING MAPPING TOKEN + FREQUENCY TO MAP KEY VALUE
@@ -154,6 +197,7 @@ void printFrequency(string st) //
         std::cout << "[" << countToken << "] = (token = \"" << tokenObject.token << "\", freq = " << tokenObject.freq << ")" << endl;
         countToken++;
     }
+    cout << "}" << endl;
 
     cout << "vector test size : " << test.size() << endl;
     std::cout << "END TESTING MAPPING MAP FW to TokenFreq + APPEND TO VECTOR" << std::endl
@@ -231,17 +275,21 @@ TokenFreq operator+(const TokenFreq &lhs, const TokenFreq &rhs)
 
 int main()
 {
-    string input = "And no, I'm not a walking C++ dictionary. I do not keep every technical detail in my head at all times. If I did that, I would be a much poorer programmer. I do keep the main points straight in my head most of the time, and I do know where to find the details when I need them. by Bjarne Stroustrup";
-    string input1 = "love amor cristiano ronaldo ronaldo";
-    cout << "Size of my input : " << input1.size() << endl
-         << endl;
 
-    cout << "Calling countNbrWords function" << endl;
-    countNbrWords(input1); // get the numbers of word inside input
+    cout << "Inside Main (It's working)"
+         << "\n";
 
-    cout << endl;
-    cout << "Calling printFrequency function" << endl;
-    printFrequency(input1);
+    // string input = "And no, I'm not a walking C++ dictionary. I do not keep every technical detail in my head at all times. If I did that, I would be a much poorer programmer. I do keep the main points straight in my head most of the time, and I do know where to find the details when I need them. by Bjarne Stroustrup";
+    // string input1 = "love amor cristiano ronaldo ronaldo";
+    // cout << "Size of my input : " << input1.size() << endl
+    //      << endl;
+
+    // cout << "Calling countNbrWords function" << endl;
+    // countNbrWords(input1); // get the numbers of word inside input
+
+    // cout << endl;
+    // cout << "Calling printFrequency function" << endl;
+    // printFrequency(input1);
 
     // cout << "TESTING OPERATOR OVERLOADING <=" << endl;
     // TokenFreq testTokenFreq1("zizi", 50);
@@ -283,10 +331,49 @@ int main()
     //     cout << "Token: " << it->token << ", Frequency: " << it->freq << endl;
     // }
 
-    std::string input2 = "Seoul Korea Korea Korea Oh Ah yes";
-    vector<TokenFreq> expected1 = {{"ah", 1}, {"korea", 3}, {"oh", 1}, {"seoul", 1}, {"yes", 1}};
-    vector<TokenFreq> output1;
-    printFrequency(input2);
+    // std::string input2 = "Seoul Korea Korea Korea Oh Ah yes";
+    // vector<TokenFreq> expected1 = {{"ah", 1}, {"korea", 3}, {"oh", 1}, {"seoul", 1}, {"yes", 1}};
+    // vector<TokenFreq> output1;
+    // printFrequency(input2);
+
+    // // * negative case empty string
+    // std::string input3 = "";
+    // printFrequency(input3);
+
+    // if (input3 == "")
+    // {
+    //     cout << "test negative case working emty string"
+    //          << "\n";
+    // }
+
+    // std::string input4 = "Ateyaba";
+    // int N = input4.length();
+    // // Traverse the string
+    // for (int i = 0; i < N; i++)
+    // {
+    //     int N = input4.length();
+    //     // Print current character
+    //     cout << input4[i] << " ";
+    // }
+
+    // // * negative case space
+    std::string input4 = "      ";
+    cout << input4.length() << "\n";
+    cout << "white space test "
+         << "\n";
+    printFrequency(input4);
+
+    if (input4 == "Only white space")
+    {
+        cout << "Only white space test checked"
+             << "\n";
+    }
+
+    // if (input4 == "")
+    // {
+    //     cout << "test negative case working multiple space"
+    //          << "\n";
+    // }
 
     return 0;
 }

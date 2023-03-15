@@ -2,14 +2,16 @@
 #define UNIT_TEST_HPP
 
 #include <vector>
+#include <iostream>
 
 #include "tokenFreq.hpp"
+
+// TODO LINKED TO MAIN.CPP : maybe include negative case for unit test
 
 namespace NS_UNIT_TESTS
 
 {
     using std::vector;
-
     // struct TokenFreq
     // {
     //     std::string token;
@@ -251,9 +253,33 @@ namespace NS_UNIT_TESTS
         return true;
     }
 
-    // * expect true
-
+    // * expect false - negative case (only white space)
     inline bool test3_getTokenFreqVec()
+    {
+
+        NS_TOKEN_FREQ::TokenFreq tf1;
+        // std::cout << "test3_getTokenFreqVec" << std::endl;
+        std::string input1 = "       ";
+        std::string expected1 = "Only white space";
+        NS_TOKEN_FREQ::vector<NS_TOKEN_FREQ::TokenFreq> output1;
+        NS_TOKEN_FREQ::getTokenFreqVec(input1, output1);
+
+        std::cout << "Entering test4"
+                  << "\n";
+        std::cout << "input1: " << input1
+                  << "\n";
+
+        if (input1 == "Only white space")
+        {
+            std::cout << "Only white space test checked"
+                      << "\n";
+            return false;
+        }
+        return true;
+    }
+
+    // * expect true
+    inline bool test4_getTokenFreqVec()
     {
 
         NS_TOKEN_FREQ::TokenFreq tf1;
@@ -395,7 +421,6 @@ namespace NS_UNIT_TESTS
     }
 
     // * expect true
-    // TODO: fix - don't pass zyBook test
     inline bool test2_selectionSort()
     {
         NS_TOKEN_FREQ::TokenFreq tf1;
@@ -425,7 +450,6 @@ namespace NS_UNIT_TESTS
     }
 
     // * expect true
-    // TODO: fix - don't pass zyBook test
     inline bool test3_selectionSort()
     {
         NS_TOKEN_FREQ::TokenFreq tf1;
