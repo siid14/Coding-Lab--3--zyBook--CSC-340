@@ -10,6 +10,8 @@ namespace NS_TOKEN_FREQ
     using std::string;
     using std::vector;
 
+    // * structure prototype
+
     struct TokenFreq // https://stackoverflow.com/questions/2732978/c-how-to-declare-a-struct-in-a-header-file
     {
         std::string token;
@@ -28,15 +30,13 @@ namespace NS_TOKEN_FREQ
 
     void getTokenFreqVec(string &istr, vector<TokenFreq> &tfVec);
 
-    void printTokenFreqVec(vector<TokenFreq> &tfVec); // ! remove if it's unused
+    void printTokenFreqVec(vector<TokenFreq> &tfVec); // ? maybe implement a different function to print TokenFreq
 
     bool compareByFreq(const TokenFreq &lhs, const TokenFreq &rhs);
 
     bool operator<=(const TokenFreq &lhs, const TokenFreq &rhs);
 
     bool operator==(const TokenFreq &lhs, const TokenFreq &rhs);
-
-    // bool operator==(const std::vector<TokenFreq> &lhs, const std::vector<TokenFreq> &rhs);
 
     TokenFreq operator+(const TokenFreq &lhs, const TokenFreq &rhs);
 

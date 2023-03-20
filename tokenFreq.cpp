@@ -17,29 +17,31 @@ namespace NS_TOKEN_FREQ
     void getTokenFreqVec(string &istr, vector<TokenFreq> &tfVec)
     {
 
-        // ? get empty string & only white space togtether
+        // ? get empty string & only white space together in the same conditions
         // empty string (negative case)
         if (istr.empty())
         {
-            //      std::cout << "empty string"
-            //  << "\n";
+            std::cout << "empty string"
+                      << "\n";
             return;
         }
 
+        // whites space string (negative case)
         int N = istr.length();
         // Traverse the string
         for (int i = 0; i < N; i++)
         { // Print current character
-            std::cout << istr[i] << " ";
+            // std::cout << istr[i] << " : ";
             if (istr[i] != ' ')
             {
-                std::cout << "It's not a string of white space only"
-                          << "\n";
+                // std::cout << "is not a string of white space only"
+                //           << "\n";
+                break;
             }
             else
             {
-                istr = "Only white space";
-                std::cout << istr << "\n";
+                istr = "Only white space"; // to compare with original string and says that it's negative case
+                // std::cout << istr << "\n";
                 return;
             }
         }
@@ -69,6 +71,23 @@ namespace NS_TOKEN_FREQ
             tfVec.push_back(tokenTest);
         }
 
+        // * print vector tfVec (without any sorting)
+        // std::cout << "Printing vector without any sorting"
+        //           << "\n";
+        // int testSize = static_cast<int>(tfVec.size()); // get the size of the vector tfVec
+        // int countToken = 0;
+        // std::cout << "size = " << testSize << " {" << std::endl;
+        // for (auto const &tokenObject : tfVec)
+        // {
+        //     std::cout << "[" << countToken << "] = (token = \"" << tokenObject.token << "\", freq = " << tokenObject.freq << ")" << std::endl;
+        //     countToken++;
+        // }
+        // std::cout << "}" << std::endl;
+    }
+
+    // print each element of the vector of matrix
+    void printTokenFreqVec(vector<TokenFreq> &tfVec)
+    {
         // * print vector tfVec
         int testSize = static_cast<int>(tfVec.size()); // get the size of the vector tfVec
         int countToken = 0;
@@ -81,21 +100,6 @@ namespace NS_TOKEN_FREQ
         std::cout << "}" << std::endl;
     }
 
-    // ! remove it if unused
-    // void printTokenFreqVec(vector<TokenFreq> &tfVec)
-    // {
-    //     // * print vector tfVec
-    //     int testSize = tfVec.size(); // get the size of the vector tfVec
-    //     int countToken = 0;
-    //     std::cout << "size = " << testSize << " {" << std::endl;
-    //     for (auto const &tokenObject : tfVec)
-    //     {
-    //         std::cout << "[" << countToken << "] = (token = \"" << tokenObject.token << "\", freq = " << tokenObject.freq << ")" << std::endl;
-    //         countToken++;
-    //     }
-    //     std::cout << "}" << std::endl;
-    // }
-
     // compare tokenFreq freq < (needed for overload <=)
     bool compareByFreq(const TokenFreq &lhs, const TokenFreq &rhs)
     {
@@ -105,7 +109,7 @@ namespace NS_TOKEN_FREQ
     // overload operator less or equal <=
     bool operator<=(const TokenFreq &lhs, const TokenFreq &rhs) // https://en.cppreference.com/w/cpp/language/operators
     {
-        std::cout << "Value of <= : " << (compareByFreq(lhs, rhs) || lhs.freq == rhs.freq) << std::endl;
+        // std::cout << "Value of <= : " << (compareByFreq(lhs, rhs) || lhs.freq == rhs.freq) << std::endl;
         return compareByFreq(lhs, rhs) || lhs.freq == rhs.freq;
     }
 
@@ -113,22 +117,6 @@ namespace NS_TOKEN_FREQ
     {
         return (lhs.token == rhs.token) && (lhs.freq == rhs.freq);
     }
-
-    // bool operator==(const std::vector<TokenFreq> &lhs, const std::vector<TokenFreq> &rhs)
-    // {
-    //     if (lhs.size() != rhs.size())
-    //     {
-    //         return false;
-    //     }
-    //     for (int i = 0; i < lhs.size(); ++i)
-    //     {
-    //         if (lhs[i].token != rhs[i].token || lhs[i].freq != rhs[i].freq)
-    //         {
-    //             return false;
-    //         }
-    //     }
-    //     return true;
-    // }
 
     std::ostream &operator<<(std::ostream &os, const TokenFreq &obj)
     {

@@ -66,7 +66,6 @@ void sortVectorDescOrderByFreq(vector<TokenFreq> &vector)
 }
 
 // ! don't work
-// TODO: need fixing
 void selectionSortVector(vector<TokenFreq> vector, int vectorSize)
 {
 
@@ -99,6 +98,11 @@ void selectionSortVector(vector<TokenFreq> vector, int vectorSize)
 void printFrequency(string &st) //
 {
 
+    cout << "CHECKING NEGATIVE CASE (EMPTY STRING or ONLY WHITES SPACE STRING)" << endl
+         << endl;
+    cout << "IT WONT RETURN THE \'END\' OF THE CHECKING IF NEGATIVE CASE NOT PASS" << endl;
+    cout << "-> IF NEGATIVE CASE NO PASS, IT WILL EXIT THE FUNCTION PRINT FREQUENCY" << endl;
+
     // empty string (negative case)
     if (st.empty())
     {
@@ -111,6 +115,7 @@ void printFrequency(string &st) //
 
     // ! if statement will always return true because the address of
     // ! a function, isspace, is not zero and "not zero" means true
+    // * been fixed in the unitTest.hpp
     // if (st.begin(), st.end(), isspace == 0)
     // {
     //     std::cout << "there is white space"
@@ -140,6 +145,10 @@ void printFrequency(string &st) //
             return;
         }
     }
+
+    cout << "END CHECKING NEGATIVE CASE (EMPTY STRING or ONLY WHITES SPACE STRING)" << endl;
+    cout << "NEGATIVE CASE PASSED -> printFrequency will pursue" << endl
+         << endl;
 
     cout << "TESTING MAPPING TOKEN + FREQUENCY TO MAP KEY VALUE" << endl
          << endl;

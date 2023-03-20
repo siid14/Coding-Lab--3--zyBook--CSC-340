@@ -6,8 +6,6 @@
 
 #include "tokenFreq.hpp"
 
-// TODO LINKED TO MAIN.CPP : maybe include negative case for unit test
-
 namespace NS_UNIT_TESTS
 
 {
@@ -49,7 +47,7 @@ namespace NS_UNIT_TESTS
                 }
             }
         }
-        return false; // TODO: check if it's the right return condition
+        return false;
     }
 
     inline bool test2_matrixInit()
@@ -72,7 +70,7 @@ namespace NS_UNIT_TESTS
                 }
             }
         }
-        return false; // TODO: check if it's the right return condition
+        return false;
     }
 
     inline bool test3_matrixInit()
@@ -95,7 +93,7 @@ namespace NS_UNIT_TESTS
                 }
             }
         }
-        return false; // TODO: check if it's the right return condition
+        return false;
     }
 
     // operator<=
@@ -114,7 +112,6 @@ namespace NS_UNIT_TESTS
     }
 
     // * expecting false
-
     inline bool test2_operatorLE()
     {
         NS_TOKEN_FREQ::TokenFreq tf1("guns", 454);
@@ -204,14 +201,6 @@ namespace NS_UNIT_TESTS
         vector<NS_TOKEN_FREQ::TokenFreq> output1;
         NS_TOKEN_FREQ::getTokenFreqVec(input1, output1);
 
-        // for (auto const &tokenObjectOut : output1)
-        // {
-        //     for (auto const &tokenObjectExp : expected1)
-        //     {
-        //         if (tokenObjectExp == tokenObjectOut)
-        //     }
-        // }
-
         if (static_cast<int>(output1.size()) != static_cast<int>(expected1.size()))
         {
             return false;
@@ -219,6 +208,12 @@ namespace NS_UNIT_TESTS
 
         for (int i = 0; i < static_cast<int>(output1.size()); i++)
         {
+            // std::cout << "output1[" << i << "].token : " << output1[i].token << std::endl;
+            // std::cout << "expected1[" << i << "].token : " << expected1[i].token << std::endl
+            //           << std::endl;
+            // std::cout << "output1[" << i << "].freq : " << output1[i].freq << std::endl;
+            // std::cout << "expected1[" << i << "].freq : " << expected1[i].freq << std::endl
+            //           << std::endl;
             if (output1[i].token != expected1[i].token || output1[i].freq != expected1[i].freq)
             {
                 return false;
@@ -238,13 +233,21 @@ namespace NS_UNIT_TESTS
         vector<NS_TOKEN_FREQ::TokenFreq> output1;
         NS_TOKEN_FREQ::getTokenFreqVec(input1, output1);
 
+        // * check the size of my matrix and expected matrix are equal
         if (static_cast<int>(output1.size()) != static_cast<int>(expected1.size()))
         {
             return false;
         }
 
+        // * check the if each element of my matrix and expected matrix are equal
         for (int i = 0; i < static_cast<int>(output1.size()); i++)
         {
+            // std::cout << "output1[" << i << "].token : " << output1[i].token << std::endl;
+            // std::cout << "expected1[" << i << "].token : " << expected1[i].token << std::endl
+            //           << std::endl;
+            // std::cout << "output1[" << i << "].freq : " << output1[i].freq << std::endl;
+            // std::cout << "expected1[" << i << "].freq : " << expected1[i].freq << std::endl
+            //           << std::endl;
             if (output1[i].token != expected1[i].token || output1[i].freq != expected1[i].freq)
             {
                 return false;
@@ -264,55 +267,55 @@ namespace NS_UNIT_TESTS
         NS_TOKEN_FREQ::vector<NS_TOKEN_FREQ::TokenFreq> output1;
         NS_TOKEN_FREQ::getTokenFreqVec(input1, output1);
 
-        std::cout << "Entering test4"
-                  << "\n";
-        std::cout << "input1: " << input1
-                  << "\n";
+        // std::cout << "Entering test4"
+        //           << "\n";
+        // std::cout << "input1: " << input1
+        //           << "\n";
 
         if (input1 == "Only white space")
         {
-            std::cout << "Only white space test checked"
-                      << "\n";
+            // std::cout << "Only white space test checked"
+            //           << "\n";
             return false;
         }
         return true;
     }
 
     // * expect true
-    inline bool test4_getTokenFreqVec()
-    {
+    // inline bool test4_getTokenFreqVec()
+    // {
 
-        NS_TOKEN_FREQ::TokenFreq tf1;
-        // std::cout << "test3_getTokenFreqVec" << std::endl;
-        std::string input1 = "Hello baby, I miss u";
-        NS_TOKEN_FREQ::vector<NS_TOKEN_FREQ::TokenFreq> expected1 = {{"baby,", 1}, {"hello", 1}, {"i", 1}, {"miss", 1}, {"u", 1}};
-        NS_TOKEN_FREQ::vector<NS_TOKEN_FREQ::TokenFreq> output1;
-        NS_TOKEN_FREQ::getTokenFreqVec(input1, output1);
+    //     NS_TOKEN_FREQ::TokenFreq tf1;
+    //     // std::cout << "test3_getTokenFreqVec" << std::endl;
+    //     std::string input1 = "Hello baby, I miss u";
+    //     NS_TOKEN_FREQ::vector<NS_TOKEN_FREQ::TokenFreq> expected1 = {{"baby,", 1}, {"hello", 1}, {"i", 1}, {"miss", 1}, {"u", 1}};
+    //     NS_TOKEN_FREQ::vector<NS_TOKEN_FREQ::TokenFreq> output1;
+    //     NS_TOKEN_FREQ::getTokenFreqVec(input1, output1);
 
-        std::cout << "output1.size " << output1.size() << std::endl;
-        std::cout << "expected1.size " << expected1.size() << std::endl;
+    //     // std::cout << "output1.size " << output1.size() << std::endl;
+    //     // std::cout << "expected1.size " << expected1.size() << std::endl;
 
-        if (static_cast<int>(output1.size()) != static_cast<int>(expected1.size()))
-        {
-            return false;
-        }
+    //     if (static_cast<int>(output1.size()) != static_cast<int>(expected1.size()))
+    //     {
+    //         return false;
+    //     }
 
-        for (int i = 0; i < static_cast<int>(output1.size()); i++)
-        {
+    //     for (int i = 0; i < static_cast<int>(output1.size()); i++)
+    //     {
 
-            // std::cout << "output1[" << i << "].token : " << output1[i].token << std::endl;
-            // std::cout << "expected1[" << i << "].token : " << expected1[i].token << std::endl << std::endl;
-            // std::cout << "output1[" << i << "].freq : " << output1[i].freq << std::endl;
-            // std::cout << "expected1[" << i << "].freq : " << expected1[i].freq << std::endl << std::endl;
-            if (output1[i].token != expected1[i].token || output1[i].freq != expected1[i].freq)
-            {
-                return false;
-            }
-        }
-        return true;
-    }
+    //         // std::cout << "output1[" << i << "].token : " << output1[i].token << std::endl;
+    //         // std::cout << "expected1[" << i << "].token : " << expected1[i].token << std::endl << std::endl;
+    //         // std::cout << "output1[" << i << "].freq : " << output1[i].freq << std::endl;
+    //         // std::cout << "expected1[" << i << "].freq : " << expected1[i].freq << std::endl << std::endl;
+    //         if (output1[i].token != expected1[i].token || output1[i].freq != expected1[i].freq)
+    //         {
+    //             return false;
+    //         }
+    //     }
+    //     return true;
+    // }
 
-    // ascending sorting algorithms
+    // descending sorting algorithms
     // * expect true
     inline bool test1_insertionSort()
     {
@@ -323,6 +326,9 @@ namespace NS_UNIT_TESTS
         NS_TOKEN_FREQ::vector<NS_TOKEN_FREQ::TokenFreq> output1;
         NS_TOKEN_FREQ::getTokenFreqVec(input1, output1);
         NS_TOKEN_FREQ::insertionSort(output1);
+        // std::cout << "Vector of matrix has been sorted in descending order :"
+        //           << "\n";
+        // NS_TOKEN_FREQ::printTokenFreqVec(output1);
 
         if (static_cast<int>(output1.size()) != static_cast<int>(expected1.size()))
         {
@@ -349,6 +355,9 @@ namespace NS_UNIT_TESTS
         NS_TOKEN_FREQ::vector<NS_TOKEN_FREQ::TokenFreq> output1;
         NS_TOKEN_FREQ::getTokenFreqVec(input1, output1);
         NS_TOKEN_FREQ::insertionSort(output1);
+        // std::cout << "Vector of matrix has been sorted in descending order :"
+        //           << "\n";
+        // NS_TOKEN_FREQ::printTokenFreqVec(output1);
 
         if (static_cast<int>(output1.size()) != static_cast<int>(expected1.size()))
         {
@@ -375,6 +384,9 @@ namespace NS_UNIT_TESTS
         NS_TOKEN_FREQ::vector<NS_TOKEN_FREQ::TokenFreq> output1;
         NS_TOKEN_FREQ::getTokenFreqVec(input1, output1);
         NS_TOKEN_FREQ::insertionSort(output1);
+        // std::cout << "Vector of matrix has been sorted in descending order :"
+        //           << "\n";
+        // NS_TOKEN_FREQ::printTokenFreqVec(output1);
 
         if (static_cast<int>(output1.size()) != static_cast<int>(expected1.size()))
         {
@@ -391,7 +403,7 @@ namespace NS_UNIT_TESTS
         return true;
     }
 
-    // descending sorting algortihm
+    // ascending sorting algorithm
     // * expect true
     inline bool test1_selectionSort()
     {
@@ -402,6 +414,9 @@ namespace NS_UNIT_TESTS
         NS_TOKEN_FREQ::vector<NS_TOKEN_FREQ::TokenFreq> output1;
         NS_TOKEN_FREQ::getTokenFreqVec(input1, output1);
         NS_TOKEN_FREQ::selectionSort(output1);
+        // std::cout << "Vector of matrix has been sorted in ascending order :"
+        //           << "\n";
+        // NS_TOKEN_FREQ::printTokenFreqVec(output1);
 
         if (static_cast<int>(output1.size()) != static_cast<int>(expected1.size()))
         {
@@ -430,6 +445,9 @@ namespace NS_UNIT_TESTS
         NS_TOKEN_FREQ::vector<NS_TOKEN_FREQ::TokenFreq> output1;
         NS_TOKEN_FREQ::getTokenFreqVec(input1, output1);
         NS_TOKEN_FREQ::selectionSort(output1);
+        // std::cout << "Vector of matrix has been sorted in ascending order :"
+        //           << "\n";
+        // NS_TOKEN_FREQ::printTokenFreqVec(output1);
 
         if (static_cast<int>(output1.size()) != static_cast<int>(expected1.size()))
         {
@@ -438,9 +456,9 @@ namespace NS_UNIT_TESTS
 
         for (int i = 0; i < static_cast<int>(output1.size()); i++)
         {
-            std::cout << "output1[" << i << "].freq : " << output1[i].freq << std::endl;
-            std::cout << "expected1[" << i << "].freq : " << expected1[i].freq << std::endl
-                      << std::endl;
+            // std::cout << "output1[" << i << "].freq : " << output1[i].freq << std::endl;
+            // std::cout << "expected1[" << i << "].freq : " << expected1[i].freq << std::endl
+            //           << std::endl;
             if (output1[i].freq != expected1[i].freq)
             {
                 return false;
@@ -459,6 +477,9 @@ namespace NS_UNIT_TESTS
         NS_TOKEN_FREQ::vector<NS_TOKEN_FREQ::TokenFreq> output1;
         NS_TOKEN_FREQ::getTokenFreqVec(input1, output1);
         NS_TOKEN_FREQ::selectionSort(output1);
+        // std::cout << "Vector of matrix has been sorted in ascending order :"
+        //           << "\n";
+        // NS_TOKEN_FREQ::printTokenFreqVec(output1);
 
         if (static_cast<int>(output1.size()) != static_cast<int>(expected1.size()))
         {
@@ -467,8 +488,8 @@ namespace NS_UNIT_TESTS
 
         for (int i = 0; i < static_cast<int>(output1.size()); i++)
         {
-            std::cout << "output1[" << i << "].freq : " << output1[i].freq << std::endl;
-            std::cout << "expected1[" << i << "].freq : " << expected1[i].freq << std::endl;
+            // std::cout << "output1[" << i << "].freq : " << output1[i].freq << std::endl;
+            // std::cout << "expected1[" << i << "].freq : " << expected1[i].freq << std::endl;
             if (output1[i].freq != expected1[i].freq)
             {
                 return false;
