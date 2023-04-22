@@ -6,4 +6,4 @@ and should not be copy or plagiarize.
 
 Can contact me on sid.14boys@yahoo.fr
 
-Sidney Thomas
+Sidney
